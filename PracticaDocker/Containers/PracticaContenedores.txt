@@ -1,0 +1,46 @@
+1) Crear un contenedor con la imagen de nginx
+
+sudo docker run nginx
+
+2) Crear un contenedor con la imagen de nginx en modo detach, ver su estado, stoppearlo y luego eliminarlo.
+
+sudo docker run -d nginx
+sudo docker stop 446309da8e66 --> stopearlo
+sudo docker rm 446309da8e66 --> eliminarlo
+
+3) Crear un contenedor con la imagen de nginx y asignarle un nombre.
+
+sudo docker run -d --name ImagenPracticaDocker nginx
+
+4)Crear un contenedor con la imagen de nginx y asignarle un puerto para conectarnos vía web.
+
+sudo docker run -d -p 80:80 nginx
+#si ponemos en Firefox Web Browser 0.0.0.0:80 nos trae el nginx
+
+5)Crear un contenedor con la imagen de nginx y asignarle un puerto para conectarnos vía web.
+
+sudo docker run -d nginx
+ls-->para ver su contenido
+sudo docker ps -> mostrar contenedor corriendo o
+sudo docker ps -a -> mostrar todos los contenedores 
+
+6) Crear un contenedor con la imagen de nginx y un index.html distinto para reemplazarlo en el servidor y cambiar su página.
+La ruta dentro del contenedor es /usr/share/nginx/html
+
+sudo docker run -d nginx
+el ID es 7b90039d0772
+vim index.html
+(I) --> Insertamos párrafo en el html--->
+ <h1>Hola</h> 
+ <p>Practica Contenedores</p>
+
+:wq --> guardamos
+
+sudo docker cp index.html 7b90039d0772:/usr/share/nginx/html
+#Cuando en el firefox web ponemos 0.0.0.0:80 se reemplaza el nginx por el nuevo html 
+
+
+
+
+
+
