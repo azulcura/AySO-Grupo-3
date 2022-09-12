@@ -1,0 +1,23 @@
+
+1) Listar las imágenes que tenemos en nuestra máquina local.
+docker image ls --> para ver las imagenes que estan en el equipo 
+
+2) Eliminar alguna imagen
+docker rmi hello-world --> para eliminar una imagen, en este caso se elimina la imagen hello-world
+
+3) Crear un contenedor con una imagen y luego intentar borrar la imagen.
+docker run -d nginx --> montar imagen nginx en un contenedor
+docker rmi nginx --> eliminar imagen
+
+#¿Qué ocurrió? 
+#devuelve un error debido a que la imagen esta en uso
+
+¿Qué deberíamos hacer?
+
+docker ps -a --> ver los contenedores y obtener el container id
+El id es d3ea51d56015
+docker stop d3ea51d56015 --> parar el contenedor
+docker rm d3ea51d56015 --> eliminar contenedor
+docker rmi nginx --> eliminar la imagen
+
+#O bien se puede forzar la eliminacion la imagen con el contenedor corriendo utilizando docker rmi nginx -f
