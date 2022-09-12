@@ -1,4 +1,4 @@
-
+#
 1) Listar las imágenes que tenemos en nuestra máquina local.
 docker image ls --> para ver las imagenes que estan en el equipo 
 
